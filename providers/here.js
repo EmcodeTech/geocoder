@@ -47,9 +47,8 @@ exports.reverseGeocode = function ( providerOpts, lat, lng, opts, cbk ) {
       cbk(err);
       return;
     }
-    if(result && result.Response && result.Response.View){
-      var view = result.Response.View[0];
-    }
+
+    var view = result.Response.View[0];
     if(!view) {
       cbk(true, result);
       return;
