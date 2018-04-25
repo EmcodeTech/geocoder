@@ -6,7 +6,7 @@ exports.geocode = function ( providerOpts, loc, opts, cbk ) {
   var options = extend({q: loc, format: "json", addressdetails:"1" }, opts || {});
 
   request({
-    uri:"http://nominatim.openstreetmap.org/search",
+    uri:"http://172.16.1.136/nom/search.php",
     qs:options
   }, function(err,resp,body) {
     if (err) return cbk(err);
@@ -27,7 +27,7 @@ exports.reverseGeocode = function ( providerOpts, lat, lng, opts, cbk ) {
   var options = extend({lat:lat, lon:lng, format:"json", addressdetails:"1"}, opts || {});
 
   request({
-    uri:"http://nominatim.openstreetmap.org/reverse",
+    uri:"http://172.16.1.136/nom/reverse.php",
     qs:options,
     headers: {
       'User-Agent': 'request'
