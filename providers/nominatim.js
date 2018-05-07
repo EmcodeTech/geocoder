@@ -24,7 +24,13 @@ exports.geocode = function ( providerOpts, loc, opts, cbk ) {
 // Nominatim api http://wiki.openstreetmap.org/wiki/Nominatim
 exports.reverseGeocode = function ( providerOpts, lat, lng, opts, cbk ) {
 
-  var options = extend({lat:lat, lon:lng, format:"json", addressdetails:"1"}, opts || {});
+  var options = extend({
+    lat: lat,
+    lon: lng,
+    format: 'json',
+    addressdetails: '1',
+    'accept-language': 'en'
+  }, opts || {});
 
   request({
     uri:"http://172.16.1.136/nom/reverse.php",
