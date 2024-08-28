@@ -6,7 +6,7 @@ exports.geocode = function ( providerOpts, loc, opts, cbk ) {
   var options = extend({q: loc, format: "json", addressdetails:"1" }, opts || {});
 
   request({
-    uri:"http://172.16.1.136/nom/search.php",
+    uri:"http://172.16.1.109:30002/nom/search.php",
     qs:options
   }, function(err,resp,body) {
     if (err) return cbk(err);
@@ -33,7 +33,7 @@ exports.reverseGeocode = function ( providerOpts, lat, lng, opts, cbk ) {
   }, opts || {});
 
   request({
-    uri:"http://172.16.1.136/nom/reverse.php",
+    uri:"http://172.16.1.109:30002/nom/reverse.php",
     qs:options,
     headers: {
       'User-Agent': 'request'
